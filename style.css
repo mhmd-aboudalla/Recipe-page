@@ -53,13 +53,44 @@ h2 {
     color: var(--Brown800);
 }
 
-p {
+p, li {
     margin: 25px 0;
     color: var(--Stone600);
 }
 
+
+        /* Bullet Lists Styling*/
 ul li, ol li {
     margin-top: 15px;
+    position: relative;
+}
+
+.preparation ul, .ingredients ul {
+    color: var(--Stone600);
+    list-style: none;
+    padding: 0 40px;
+}
+
+.preparation li::before,
+.ingredients li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: var(--Rose800);
+    position: absolute;
+    border-radius: 50%;
+    left: -35px;
+    top: 10px;
+}
+
+.preparation li:nth-child(1):before,
+.ingredients li:nth-child(5):before {
+    top: 23px;
+}
+
+.preparation li,
+.ingredients li {
+    line-height: 25px;
 }
 
         /*Preparation design*/
@@ -70,26 +101,102 @@ ul li, ol li {
     border-radius: 10px;
 }
 
-.preparation ul {
-    color: var(--Stone600);
-    list-style: none;
-    padding: 25px;
-    position: relative;
-}
-
-.preparation ul li::before {
-    content: "";
-    width: 5px;
-    height: 5px;
-    background: var(--Rose800);
-    position: absolute;
-    border-radius: 50%;
-}
-
 .preparation h3 {
     color: var(--Rose800);
 }
 
-.preparation li {
-    
+        /* Ingredients */
+.ingredients {
+    margin: 30px 0;
+}
+
+.ingredients li {
+    font-weight: 400;
+}
+
+.ingredients li::before {
+    background-color: var(--Brown800);
+}
+
+hr {
+    border: 0;
+    outline: 0;
+    height: 1px;
+    background: var(--Stone150);
+}
+
+        /* Instructions */
+.instructions {
+    margin: 30px 0;
+}
+
+.instructions ol {
+    padding: 0 30px;
+    list-style-type: none;
+    counter-reset: count;
+}
+
+.instructions ol li::before {
+    content: counter(count) ". ";
+    counter-increment: count;
+    color: var(--Brown800);
+    font-weight: 700;
+    position: absolute;
+    left: -25px;
+}
+
+        /* Nutrition */
+
+.nutrition {
+    margin: 20px 0;
+}
+
+.nutrition table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.nutrition tr {
+    border-bottom: 2px solid var(--Stone150);
+}
+
+.nutrition td {
+    font-weight: 400;
+    padding: 10px 30px;
+}
+
+.nutrition tr td:last-child {
+    color: var(--Rose800);
+    font-weight: 600;
+}
+
+.nutrition tr:last-child {
+    border: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+    .menu {
+            max-width: 50%;
+            margin: 150px auto;
+            border-radius: 20px;
+            padding: 40px;
+    }
+
+    .menu_content {
+        padding: 0;
+        margin-top: 30px;
+    }
+
+    .menu .head_img {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .menu img {
+        width: 100%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+    }
 }
